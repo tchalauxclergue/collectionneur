@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# collectionneur <a href="https://doi.org/10.5281/zenodo.15146959"><img src="man/figures/collectionneur_logo_ver1_small_300dpi.png" align="right" height="138" /></a>
+# Projet Collectionneur <a href="https://doi.org/10.5281/zenodo.15146959"><img src="man/figures/collectionneur_logo_ver1_small_300dpi.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -133,6 +133,79 @@ directory (`save.dir`). This report includes:
 The updated version of the database and the report are time-stamped to
 ensure that database versions do not conflict. This ensures full
 traceability of database modifications.
+
+``` text
+                                                          ------ Database Update Report ------                                                         
+
+                                                          ------------------------------------                                                         
+ Start 2025-03-31 15:41:23 Europe/Paris                        collectionneur::archiviste                                       End 2025-03-31 15:45:47 
+                                                          ------------------------------------                                                         
+
+                                                          ------------------------------------                                                         
+ Start 2025-03-31 15:41:23 Europe/Paris                      collectionneur::bibliothecaire                                       End 2025-03-31 15:44:11 
+                                                          ------------------------------------                                                         
+
+ New column headers found in 'additions':
+    c("EDRXF_Al_mg.kg.1", "EDXRF_Ca_mg.kg.1", "EDXRF_Si_mg.kg.1", "Layer_thickness_cm", "Depth_min_cm", "Depth_max_cm", "Current_archive",  
+  "Current_archive_quantity_g", "Current_archive_quantity_last_update", "Note") 
+ 
+ Replacement     Resolve    Database header                          Additions header                         Final header                            
+ -----------     -------    -------- ------                          --------- ------                         ----- ------                            
+ select          new        Al_mg.kg                                 EDRXF_Al_mg.kg.1                         EDRXF_Al_mg.kg.1                         
+ select          new        Ca_mg.kg                                 EDXRF_Ca_mg.kg.1                         EDXRF_Ca_mg.kg.1                         
+ addition        new        /-x-/                                    EDXRF_Si_mg.kg.1                         EDXRF_Si_mg.kg.1                         
+ addition        new        /-x-/                                    Layer_thickness_cm                       Layer_thickness_cm                       
+ addition        new        /-x-/                                    Depth_min_cm                             Depth_min_cm                             
+ addition        new        /-x-/                                    Depth_max_cm                             Depth_max_cm                             
+ addition        new        /-x-/                                    Current_archive                          Current_archive                          
+ addition        new        /-x-/                                    Current_archive_quantity_g               Current_archive_quantity_g               
+ addition        new        /-x-/                                    Current_archive_quantity_last_update     Current_archive_quantity_last_update     
+ addition        new        /-x-/                                    Note                                     Note                                     
+ -----------     -------    -------- ------                          --------- ------                         ----- ------                            
+
+ Final 'database' column names:
+    c("IGSN", "Parent_IGSN", "Sample_name", "Sample_name_old", "Waypoint", "Waypoint_old", "Geoloc_name", "Material", "Nature", "Class",  
+  "Class_decontamination", "Year_of_remediation", "X_WGS84", "Y_WGS84", "Z_elevation_m", "Country", "Region", "State.Province.Prefecture",  
+  "City.Township", "Catchment", "Catchment_old", "River", "Lithology", "Lithology_simp", "Pedology_SoilGroup_code", "Pedology_SG_CSCS_2011",  
+  "Pedology_SG_WRG_2006", "Dose_sed_µSv.h", "Dose_soil_µSv.h", "Dose_ratio_SedSoil", "EDRXF_Al_mg.kg.1", "EDXRF_Ca_mg.kg.1", "EDXRF_Si_mg.kg.1",  
+  "Campaign", "Field_program", "Collection_method", "Sampling_depth_cm", "Layer_thickness_cm", "Depth_min_cm", "Depth_max_cm", "Sampling_date",  
+  "Sampling_time", "Collector", "Collector_ORCID", "Collector_address", "Current_archive", "Current_archive_quantity_g",  
+  "Current_archive_quantity_last_update", "Note") 
+ 
+
+                                                          ------------------------------------                                                         
+ Start 2025-03-31 15:44:11 Europe/Paris                        collectionneur::conservateur                                       End 2025-03-31 15:45:47 
+                                                          ------------------------------------                                                         
+
+ Sample identifier(s): IGSN, Sample_name 
+
+ Replacement     Resolve    Sample                             Column                         Old value                 New value                 Final value              
+ -----------     -------    ------                             ------                         --- -----                 --- -----                 ----- -----              
+ Each            new        10.58052/IETGC0004 - FAL_0012      Parent_IGSN                    NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      Dose_soil_µSv.h                NA                        NA                        NA                      
+ Sample          new        10.58052/IETGC0004 - FAL_0012      EDXRF_Ca_mg.kg.1               NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      EDXRF_Si_mg.kg.1               NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      Layer_thickness_cm             NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      Depth_min_cm                   NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      Depth_max_cm                   NA                        NA                        NA                       
+ Sample          new        10.58052/IETGC0004 - FAL_0012      Current_archive                NA                        NA                        NA                       
+
+ Sample          new        10.58052/IETGC000K - FAS_0025_A    Dose_soil_µSv.h                NA                        NA                        NA                      
+ Sample          new        10.58052/IETGC000K - FAS_0025_A    EDRXF_Al_mg.kg.1               26.95                     8.2                       8.2                      
+
+ All             new        10.58052/IETGC000X - FNL_0037      Region                         Miyagi                    Tohoku                    Tohoku                   
+ All             new        10.58052/IETGC000X - FNL_0037      State.Province.Prefecture      NA                        Fukushima                 Fukushima                
+ All             new        10.58052/IETGC000X - FNL_0037      City.Township                  NA                        Iitate mura               Iitate mura              
+ All             new        10.58052/IETGC000X - FNL_0037      Catchment                      NA                        Niida                     Niida                    
+ All             new        10.58052/IETGC000X - FNL_0037      Catchment_old                  NA                        Abukuma                   Abukuma                  
+ All             new        10.58052/IETGC000X - FNL_0037      River                          NA                        Niida                     Niida                    
+ All             new        10.58052/IETGC000X - FNL_0037      Dose_soil_µSv.h                NA                        NA                        NA                      
+
+ All             new        10.58052/IETGC000Y - FNS_0038      Dose_soil_µSv.h                NA                        NA                        NA                      
+ All             new        10.58052/IETGC000Y - FNS_0038      EDRXF_Al_mg.kg.1               46.9                      8.2                       8.2                      
+
+ -----------     -------    ------                             ------                         --- -----                 --- -----                 ----- -----              
+```
 
 ## Getting help
 
