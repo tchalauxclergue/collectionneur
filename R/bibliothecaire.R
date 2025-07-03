@@ -196,10 +196,16 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
           choice.2.A5 <- collectionneur::questioneur("Do you want to provide a 'database' column header or skip and keep both columns (Enter)?  ", c(colnames(database), ""))
 
           if(choice.2.A5 %in% colnames(database)){ # if index is provided
-            old.name <- choice.2.A5
-            choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header - (return) to reselect or (Enter) to quit:  ", old.name, new.name), c("old", "new", "return", ""))
-            if(choice.2.A4 == ""){
-              cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
+
+            choice.2.A4 <- "initial"
+            while(!(choice.2.A4 %in% c("old", "new",  ""))){ # loop until the user chose old, new or skip
+              old.name <- choice.2.A5
+              choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header - (return) to reselect or (Enter) to quit:  ", old.name, new.name), c("old", "new", "return", ""))
+              if(choice.2.A4 == ""){ # skip the merging
+                cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
+              }else if(choice.2.A4 == "return"){ # allows to set new answer
+                choice.2.A5 <- collectionneur::questioneur("Do you want to provide a 'database' column header or skip and keep both columns (Enter)?  ", c(colnames(database), ""))
+              }
             }
           }else if(choice.2.A5 == ""){
             cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
