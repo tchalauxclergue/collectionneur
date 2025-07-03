@@ -226,7 +226,7 @@ utils::citation(package = "collectionneur")
 #>   Chalaux-Clergue, T. (2025). collectionneur: A user-friendly package
 #>   designed to manage internal databases efficently. , Zenodo [Package]:
 #>   https://doi.org/10.5281/zenodo.15146959, Github [Package]:
-#>   https://github.com/tchalauxclergue/collectionneur, Version = 1.0.0.
+#>   https://github.com/tchalauxclergue/collectionneur, Version = 1.1.0.
 #> 
 #> Ein BibTeX-Eintrag für LaTeX-Benutzer ist
 #> 
@@ -235,7 +235,7 @@ utils::citation(package = "collectionneur")
 #>     author = {{Chalaux-Clergue} and {Thomas}},
 #>     year = {2025},
 #>     month = {4},
-#>     note = {R package version 1.0.0},
+#>     note = {R package version 1.1.0},
 #>     doi = {https://doi.org/10.5281/zenodo.15146959},
 #>     url = {https://github.com/tchalauxclergue/collectionneur},
 #>   }
