@@ -1,7 +1,7 @@
 Type: Package
 Package: collectionneur
 Title: A user-friendly package designed to manage internal databases efficently.
-Version: 1.0.0
+Version: 1.1.0
 Authors:
   person("Thomas", "Chalaux-Clergue", role = c("cre","aut","cph"), email = "thomaschalaux@icloud.com", comment = c(ORCID = "0000-0003-3525-832X"))
 Maintainer:

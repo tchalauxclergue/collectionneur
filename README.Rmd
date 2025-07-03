@@ -15,8 +15,11 @@ knitr::opts_chunk$set(
 
 ```{r include = FALSE, eval = FALSE}
 # to update vignette : Crtl + Shift + D
+library(devtools)
 
-devtools::build_rmd(files = "D:/Code_R/Collectionneur/Collectionneur/README.Rmd") 
+# knitr::knit_engines$set('latin1')
+
+devtools::build_rmd(files = "C:/Users/chalauth/ChalauxThomas/Code/R/collectionneur/README.Rmd") 
 ```
 
 # Projet Collectionneur <a href="https://doi.org/10.5281/zenodo.15146959"><img src="man/figures/collectionneur_logo_ver1_small_300dpi.png" align="right" height="138" /></a>
@@ -66,10 +69,10 @@ The `collectionneur` package is available in this [Github](https://github.com/tc
 library(devtools)
 
 # Install the latest version from GitHub
-devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.0.0", ref = "master", force = T)
+devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.1.0", ref = "master", force = T)
 
 # Alternatively, from the downloaded .tar.gz file
-devtools::install_local("path_to_file/collectionneur_1.0.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
+devtools::install_local("path_to_file/collectionneur_1.1.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
 ```
 
 
@@ -101,8 +104,8 @@ Once the function is running, the user is required to take decisions via the con
 ```{r, eval = FALSE}
 library(collectionneur)
 
-collectionneur::archiviste(database = "path_to_file/database.csv",     # Path to database CSV file
-                           additions = "path_to_file/new.samples.csv", # Path to database CSV file
+collectionneur::archiviste(database = "path_to_file/database.csv",     # Path to database CSV file - use 'database.dr' to test
+                           additions = "path_to_file/new.samples.csv", # Path to database CSV file - use 'additions.dr' to test
                            sample.ids = c("IGSN", "Sample_name"),      # The column names that uniquely identify samples
                            save.dir = "save_dir/example",              # Path to database update folder
                            database.label = "example",                 # Your database label
@@ -128,7 +131,7 @@ This report includes:
 
 The updated version of the database and the report are time-stamped to ensure that database versions do not conflict. This ensures full traceability of database modifications. 
 
-```{text}
+```
                                                           ------ Database Update Report ------                                                         
 
                                                           ------------------------------------                                                         

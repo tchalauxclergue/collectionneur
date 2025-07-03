@@ -4,11 +4,11 @@ citEntry(entry  = "Manual",
          author = "Chalaux-Clergue, Thomas",
          year   = 2025,
          month  = 04,
-         note   = "R package version 1.0.0",
+         note   = "R package version 1.1.0",
          doi    = "https://doi.org/10.5281/zenodo.15146959",
          url    = "https://github.com/tchalauxclergue/collectionneur",
          textVersion = paste("Chalaux-Clergue, T. (2025). ",
                "collectionneur: A user-friendly package designed to manage internal databases efficently. , ",
                "Zenodo [Package]: https://doi.org/10.5281/zenodo.15146959, ",
                 "Github [Package]: https://github.com/tchalauxclergue/collectionneur, ",
-                " Version = 1.0.0",".",sep="") )
+                " Version = 1.1.0",".",sep="") )

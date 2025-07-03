@@ -158,7 +158,7 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
           }
         }
 
-
+        choice.2.A3 = ""
 
         # Automatic search of corresponding column in database -------
         if(choice.2.A1 == "yes"){
@@ -175,8 +175,19 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
 
           # Correct the names with the correspondences
           if(as.numeric(choice.2.A3) %in% seq(closest.names)){
-            old.name <- closest.names[as.numeric(choice.2.A3)]
-            choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header:  ", old.name, new.name), c("old", "new"))
+
+            choice.2.A4 <- "initial"
+            while(!(choice.2.A4 %in% c("old", "new",  ""))){ # loop until the user chose old, new or skip
+              old.name <- closest.names[as.numeric(choice.2.A3)]
+              choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header - (return) to reselect or (Enter) to quit:  ", old.name, new.name), c("old", "new", "return", ""))
+              if(choice.2.A4 == ""){ # skip the merging
+                cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
+              }else if(choice.2.A4 == "return"){ # allows to set new answer
+                cat(sprintf("\nMost similar column headers to '%s':   %s\n", new.name, paste(paste0("[", seq(closest.names), "] '", closest.names, "'"), collapse = ", ")))
+                choice.2.A3 <- collectionneur::questioneur("Enter the index of the relevant column header or (Enter) if none matches:  ", c(seq(closest.names), ""))
+              }
+            }
+
           }
         }
 
@@ -186,8 +197,10 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
 
           if(choice.2.A5 %in% colnames(database)){ # if index is provided
             old.name <- choice.2.A5
-            choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header:  ", old.name, new.name), c("old", "new"))
-
+            choice.2.A4 <- collectionneur::questioneur(sprintf("Keep (old) '%s' or use (new) '%s' column header - (return) to reselect or (Enter) to quit:  ", old.name, new.name), c("old", "new", "return", ""))
+            if(choice.2.A4 == ""){
+              cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
+            }
           }else if(choice.2.A5 == ""){
             cat(sprintf(">>> The 'additions' header '%s' will be considered as a new columns and be added to the 'database'.\n", new.name))
           }
