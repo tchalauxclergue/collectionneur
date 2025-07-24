@@ -16,9 +16,11 @@ archiviste(
   save.dir,
   database.label,
   note,
-  sep = ",",
-  dec = ".",
+  read.sep = ",",
+  read.dec = ".",
   na.strings = "",
+  save.sep = ",",
+  save.dec = ".",
   na = "",
   fileEncoding = "latin1"
 )
@@ -46,9 +48,9 @@ archiviste(
 
 \item{note}{Character. Optional additional note to append to the file and report file name.}
 
-\item{sep}{A character specifying the field separator for CSV files (default: `","`).}
+\item{read.sep}{A character specifying the field separator to save database CSV files (default: `","`).}
 
-\item{dec}{A character specifying the decimal separator for CSV files (default: `"."`).}
+\item{read.dec}{A character specifying the decimal separator to save database CSV files (default: `"."`).}
 
 \item{na.strings}{A character vector specifying strings to be treated as `NA` (default: `""`).}
 

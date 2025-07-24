@@ -14,8 +14,10 @@
 #' @param save.dir Character. Optional directory path for saving the report. Required if `save.report = TRUE`.
 #' @param database.label Character. Label for the database, used for naming output files.
 #' @param note Character. Optional additional note to append to the file and report file name.
-#' @param sep A character specifying the field separator for CSV files (default: `","`).
-#' @param dec A character specifying the decimal separator for CSV files (default: `"."`).
+#' @param read.sep A character specifying the field separator to read CSV files (default: `","`).
+#' @param read.dec A character specifying the decimal separator to read CSV files (default: `"."`).
+#' @param read.sep A character specifying the field separator to save database CSV files (default: `","`).
+#' @param read.dec A character specifying the decimal separator to save database CSV files (default: `"."`).
 #' @param na.strings A character vector specifying strings to be treated as `NA` (default: `""`).
 #' @param na Character string, used for missing values in the data.= (default - "").
 #' @param fileEncoding Character string, if non-empty declares the encoding to be used on a file (not a connection) so the character data can be re-encoded as they are written, "latin1" (default).
@@ -38,7 +40,7 @@
 #' @author Thomas Chalaux-Clergue
 #'
 #' @export
-archiviste <- function(database, additions, sample.ids, method = "jw", save.updates = TRUE, save.step = FALSE, save.report = TRUE, return.report = FALSE, save.dir, database.label, note, sep = ",", dec = ".", na.strings = "", na = "", fileEncoding = "latin1"){
+archiviste <- function(database, additions, sample.ids, method = "jw", save.updates = TRUE, save.step = FALSE, save.report = TRUE, return.report = FALSE, save.dir, database.label, note, read.sep = ",", read.dec = ".", na.strings = "", save.sep = ",", save.dec = ".", na = "", fileEncoding = "latin1"){
 
   require(utils)
   require(dplyr)
@@ -47,12 +49,12 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
   ## if a path is given for the database - load it
   if (class(database) == "character") {
     path.database <- database
-    database <- collectionneur::receptioniste(file = path.database, sep = sep, dec = dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Database")
+    database <- collectionneur::receptioniste(file = path.database, sep = read.sep, dec = read.dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Database")
   }
   ## if a path is given for the additions - load it
   if (class(additions) == "character") {
     path.additions <- additions
-    additions <- collectionneur::receptioniste(file = path.additions, sep = sep, dec = dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Additions")
+    additions <- collectionneur::receptioniste(file = path.additions, sep = read.sep, dec = read.dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Additions")
   }
 
   # Ensure the ID column exists in both data frames
@@ -144,7 +146,7 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
 
     file.name <- paste(file.name, report.time, sep = "_")
 
-    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, sep = sep, dec = dec, fileEncoding = fileEncoding, na = na)
+    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, sep = save.sep, dec = save.dec, fileEncoding = fileEncoding, na = na)
   }
 
   if (isTRUE(return.report)) {

@@ -17,9 +17,9 @@ Imports:
 License: CeCILL 2.1
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Packaged: 2025-07-24
 Date: 2025
 Author:
-  Thomas Chalaux-Clergue [cre, aut, cph] ("0000-0003-3525-832X")
+  Thomas Chalaux-Clergue [cre, aut, cph] ("0000-0003-3525-832X"),
   Amaury Bardelle [ctb] ("0000-0002-4103-9839")
