@@ -26,8 +26,8 @@ existing database while keeping a detailed report of all modifications.
 All database formats are allowed, and we also propose a unified template
 for databases, initially designed for sediment source fingerprinting
 databases, on [Zenodo](https://doi.org/10.5281/zenodo.10725788)
-(Chalaux-Clergue et al., 2024,
-<https://doi.org/10.5281/zenodo.10725788>).
+([Chalaux-Clergue et al., 2024 -
+https://doi.org/10.5281/zenodo.10725788](https://doi.org/10.5281/zenodo.10725788)).
 
 Features:
 
@@ -38,7 +38,7 @@ Features:
   existing database.
 - Provides a structured and dated report of all modifications made to
   the database.
-- Supports any database format and customizable settings for handling
+- Supports any database format and customisation settings for handling
   missing values.
 
 The `collectionneur` package is available in this
@@ -46,7 +46,12 @@ The `collectionneur` package is available in this
 and is also archived on
 [Zenodo](https://doi.org/10.5281/zenodo.15146959).
 
-### Table of content
+<details>
+
+<summary>
+
+<strong>Table of Contents</strong>
+</summary>
 
 <!-- toc -->
 
@@ -59,6 +64,8 @@ and is also archived on
 
 <!-- tocstop -->
 
+</details>
+
 ## Installation
 
 ``` r
@@ -66,10 +73,10 @@ and is also archived on
 library(devtools)
 
 # Install the latest version from GitHub
-devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.1.0", ref = "master", force = T)
+devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.2.0", ref = "master", force = T)
 
 # Alternatively, from the downloaded .tar.gz file
-devtools::install_local("path_to_file/collectionneur_1.1.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
+devtools::install_local("path_to_file/collectionneur_1.2.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
 ```
 
 ## Usage
@@ -112,8 +119,8 @@ collectionneur::archiviste(database = "path_to_file/database.csv",     # Path to
                            database.label = "example",                 # Your database label
                            note = "v2",                                # The update index of the database
                            method = "jw",                              # Matching method (default: "jw" for Jaro-Winkler).
-                           sep = ";",                                  # Field separator for CSV files
-                           dec = ".",                                  # Decimal separator for CSV files
+                           sep = ";",                                  # Field separator for CSV files reading and saving
+                           dec = ".",                                  # Decimal separator for CSV files reading and saving
                            na.strings = "",                            # Strings to be treated as 'NA'
                            fileEncoding = "latin1",                    # The encoding to be used on a file
                            na = ""                                     # Missing values in the data
@@ -212,8 +219,11 @@ traceability of database modifications.
 
 ## Getting help
 
-If you encounter a clear bug, please file and issue or send an email to
-[Thomas Chalaux-Clergue](mailto:thomaschalaux@icloud.com).
+If you encounter a clear bug, have a question or suggestion, please
+either open an
+[Issues](https://github.com/tchalauxclergue/collectionneur/issues) or
+send an email to [Thomas Chalaux-Clergue
+(thomaschalaux@icloud.com)](mailto:thomaschalaux@icloud.com).
 
 ## Citation
 
@@ -226,16 +236,16 @@ utils::citation(package = "collectionneur")
 #>   Chalaux-Clergue, T. (2025). collectionneur: A user-friendly package
 #>   designed to manage internal databases efficently. , Zenodo [Package]:
 #>   https://doi.org/10.5281/zenodo.15146959, Github [Package]:
-#>   https://github.com/tchalauxclergue/collectionneur, Version = 1.1.0.
+#>   https://github.com/tchalauxclergue/collectionneur, Version = 1.2.0.
 #> 
 #> Ein BibTeX-Eintrag für LaTeX-Benutzer ist
 #> 
 #>   @Manual{,
 #>     title = {collectionneur: A user-friendly package designed to manage internal databases efficently.},
-#>     author = {{Chalaux-Clergue} and {Thomas}},
+#>     author = {{Chalaux-Clergue} and {Thomas} and {Amaury} and {Bardelle}},
 #>     year = {2025},
-#>     month = {4},
-#>     note = {R package version 1.1.0},
+#>     month = {7},
+#>     note = {R package version 1.2.0},
 #>     doi = {https://doi.org/10.5281/zenodo.15146959},
 #>     url = {https://github.com/tchalauxclergue/collectionneur},
 #>   }

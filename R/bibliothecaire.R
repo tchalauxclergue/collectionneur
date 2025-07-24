@@ -45,7 +45,7 @@
 #' @author Thomas Chalaux-Clergue
 #' @export
 #'list
-bibliothecaire <- function(database, additions, method = "jw", save.updates = TRUE, save.report = TRUE, return.report = FALSE, save.dir, database.label, note, sep = ",", dec = ".", na = "", fileEncoding = "latin1") {
+bibliothecaire <- function(database, additions, method = "jw", save.updates = TRUE, save.report = TRUE, return.report = FALSE, save.dir, database.label, note, save.sep = ",", save.dec = ".", na = "", fileEncoding = "latin1") {
 
   require(stringdist)
 
@@ -262,7 +262,7 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
   if (choice.1 == "no" | length(new.columns.corr) > 0) {
     # petit message pour indiquer les collones de new.columns.corr seront ajouter comme des nouvelles colonnes dans la base de données.
     if (length(new.columns.corr) != length(new.columns)) {
-      base::cat(base::sprintf("\nAfter the corrections, %s new columns remain, and will be added to the 'batabase': %s. \n", length(new.columns.corr), paste(new.columns.corr, collapse=", ")))
+      base::cat(base::sprintf("\nAfter the corrections, %s new columns remain, and will be added to the 'batabase': %s. \n", length(new.columns.corr), paste(new.columns.corr, collapse = ", ")))
     }else if (choice.1 == "no") {
       base::cat("\nThese columns will be added to the 'batabase'.\n")
     }else{
@@ -345,8 +345,8 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
     file.name <- paste(file.name, report.time, sep = "_")
     file.name.2 <- paste(file.name.2, report.time, sep = "_")
 
-    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, na = na)
-    utils::write.csv(x = additions, file = paste0(save.dir, "/", file.name.2, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, na = na)
+    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
+    utils::write.csv(x = additions, file = paste0(save.dir, "/", file.name.2, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
   }
 
   if (isTRUE(return.report)) {

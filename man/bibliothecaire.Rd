@@ -14,6 +14,8 @@ bibliothecaire(
   save.dir,
   database.label,
   note,
+  save.sep = ",",
+  save.dec = ".",
   na = "",
   fileEncoding = "latin1"
 )
@@ -38,6 +40,10 @@ bibliothecaire(
 \item{na}{Character string, used for missing values in the data.= (default - "").}
 
 \item{fileEncoding}{Character string, if non-empty declares the encoding to be used on a file (not a connection) so the character data can be re-encoded as they are written, "latin1" (default).}
+
+\item{sep}{A character specifying the field separator for CSV files (default: `","`).}
+
+\item{dec}{A character specifying the decimal separator for CSV files (default: `"."`).}
 }
 \value{
 A list containing:
