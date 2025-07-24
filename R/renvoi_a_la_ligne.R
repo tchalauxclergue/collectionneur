@@ -17,20 +17,20 @@
 #' @author Thomas Chalaux-Clergue
 #' @export
 #'
-renvoi.a.la.ligne <- function(columns, max.line.length = 145) {
+renvoi.a.la.ligne <- function(columns, max.line.length = 145){
 
   formatted.lines <- c()
   current.line <- "c("
 
-  for(col in columns){
-    if(col != columns[length(columns)]){
+  for (col in columns) {
+    if (col != columns[length(columns)]) {
       col.with.comma <- paste0("\"", col, "\", ")
     }else{
       col.with.comma <- paste0("\"", col, "\"")
     }
 
     # Check if adding the next column exceeds max.line.length
-    if(nchar(current.line) + nchar(col.with.comma) > max.line.length){
+    if (nchar(current.line) + nchar(col.with.comma) > max.line.length) {
       # Store the current line and start a new one
       formatted.lines <- c(formatted.lines, current.line)
       current.line <- paste0(" ", col.with.comma)
@@ -41,7 +41,7 @@ renvoi.a.la.ligne <- function(columns, max.line.length = 145) {
   }
 
   # Add the last line if it's not empty
-  if(nchar(current.line) > 0){
+  if (nchar(current.line) > 0) {
     formatted.lines <- c(formatted.lines, current.line)
   }
 

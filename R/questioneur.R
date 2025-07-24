@@ -16,11 +16,11 @@
 #'
 #' @author Thomas Chalaux-Clergue
 #'
-questioneur <- function(question, answers){
+questioneur <- function(question, answers) {
 
   deplay.answers <- answers
 
-  if("" %in% answers){
+  if ("" %in% answers) {
     deplay.answers[which(answers == "")] <- "Enter/Exit"
   }else{
     deplay.answers <- answers
@@ -28,9 +28,9 @@ questioneur <- function(question, answers){
 
   choice <- readline(base::cat(question))
 
-  while(!(choice %in% answers)){
+  while (!(choice %in% answers)) {
 
-    base::cat(paste0("\nInput error. Please choose from the available options: ", base::paste0(base::paste0("(", deplay.answers[1:(length(deplay.answers)-1)], ")", collapse = ", "), " or (", deplay.answers[length(deplay.answers)]), ") \n"))
+    base::cat(paste0("\nInput error. Please choose from the available options: ", base::paste0(base::paste0("(", deplay.answers[1:(length(deplay.answers) - 1)], ")", collapse = ", "), " or (", deplay.answers[length(deplay.answers)]), ") \n"))
 
     choice <- base::readline(question)
 

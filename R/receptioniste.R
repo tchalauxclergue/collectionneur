@@ -41,7 +41,7 @@ receptioniste <- function(file, ..., db.type){
     )
 
     # Check if only one column is detected
-    if(!is.null(database) && ncol(database) > 1){
+    if (!is.null(database) && ncol(database) > 1) {
       message(paste0(db.type, " loaded successfully!"))
       return(database)
 
@@ -52,30 +52,30 @@ receptioniste <- function(file, ..., db.type){
       # Display current settings
       cat("Current settings:\n")
       cat(sprintf("  Path: %s\n", file))
-      for(arg.name in names(args)){
+      for (arg.name in names(args)) {
         cat(sprintf("  %s: %s\n", arg.name, args[[arg.name]]))
       }
 
       # Allow user to modify parameters
       new.file <- readline("Enter new value for 'file' path (or press Enter to keep current): ")
-      if(new.file != ""){
+      if (new.file != "") {
         file <- new.file
       }
 
-      for(arg.name in names(args)){
+      for (arg.name in names(args)) {
         new_value <- readline(sprintf("Enter new value for '%s' (or press Enter to keep current): ", arg.name))
-        if(new_value != ""){
+        if (new_value != "") {
           args[[arg.name]] <- type.convert(new_value, as.is = TRUE)
         }
       }
 
       # Allow user to add a new argument(s)
       new.arg <- readline("Would you like to add a new argument? (yes or press Enter to keep currents): ")
-      while(tolower(new.arg) == "yes" | tolower(new.arg) == "y"){
+      while (tolower(new.arg) == "yes" | tolower(new.arg) == "y") {
         new.arg.name <- readline("Enter the argument name for read.csv (see 'base::read.csv' help for more details): ")
         new.arg.value <- readline(sprintf("Enter value for '%s': ", new.arg.name))
 
-        if(new.arg.name != "" && new.arg.value != ""){
+        if (new.arg.name != "" && new.arg.value != "") {
           args[[new.arg.name]] <- type.convert(new.arg.value, as.is = TRUE)
           cat(sprintf("Added argument: %s = %s\n", new.arg.name, new.arg.value))
         }

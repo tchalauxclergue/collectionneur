@@ -45,18 +45,18 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
 
   # Databases loading
   ## if a path is given for the database - load it
-  if(class(database) == "character"){
+  if (class(database) == "character") {
     path.database <- database
     database <- collectionneur::receptioniste(file = path.database, sep = sep, dec = dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Database")
   }
   ## if a path is given for the additions - load it
-  if(class(additions) == "character"){
+  if (class(additions) == "character") {
     path.additions <- additions
     additions <- collectionneur::receptioniste(file = path.additions, sep = sep, dec = dec, fileEncoding = fileEncoding, na.strings = na.strings, db.type = "Additions")
   }
 
   # Ensure the ID column exists in both data frames
-  if( !(all(sample.ids %in% colnames(database))) || !(all(sample.ids %in% colnames(additions))) ) {
+  if ( !(all(sample.ids %in% colnames(database))) || !(all(sample.ids %in% colnames(additions))) ) {
     stop(cat(sprintf("Not all 'sample.ids' (%s) not found in both dataframes.", paste(sample.ids, collapse = ", ") )))
   }
 
@@ -72,7 +72,7 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
   report.lines <- c()
 
   # Identify new columns
-  if(length(setdiff(colnames(additions), colnames(database))) != 0){
+  if (length(setdiff(colnames(additions), colnames(database))) != 0) {
     # identify new columns in the additions that do not exist in the database
     results.bibliothecaire <- collectionneur::bibliothecaire(database = database, additions = additions, method = method, save.updates = save.step, save.report = FALSE, return.report = TRUE)
 
@@ -88,7 +88,7 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
   # Find common identifiers
   common.samples <- intersect(keys.database, keys.additions)
 
-  if(!is.null(common.samples)){
+  if (!is.null(common.samples)) {
 
     results.conservateur <- collectionneur::conservateur(database = database, additions = additions, sample.ids = sample.ids, save.updates = save.step, save.report = FALSE, return.report = TRUE, fileEncoding = fileEncoding, na = na)
 
@@ -118,15 +118,15 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
   report.time <- gsub(" ", "_", gsub(":", "-", report.time))
 
 
-  if(!missing(database.label)){
+  if (!missing(database.label)) {
     file.name <- database.label
   }else{
     file.name <- "Database_update"
   }
 
   # save report
-  if(isTRUE(save.report)){
-    if(!missing(note)){
+  if (isTRUE(save.report)) {
+    if (!missing(note)) {
       report.name <- paste(file.name, note, sep = "_")
     }
     report.name <- paste0(report.name, "_report")
@@ -137,17 +137,17 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
 
 
   # save results
-  if(isTRUE(save.updates) && !missing(save.dir)){
-    if(!missing(note)){
+  if (isTRUE(save.updates) && !missing(save.dir)) {
+    if (!missing(note)) {
       file.name <- paste(file.name, note, sep = "_")
     }
 
-    file.name <- paste(file.name, report.time, sep="_")
+    file.name <- paste(file.name, report.time, sep = "_")
 
-    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, na = na)
+    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, sep = sep, dec = dec, fileEncoding = fileEncoding, na = na)
   }
 
-  if(isTRUE(return.report)){
+  if (isTRUE(return.report)) {
     to.return <- list(database, report)
     names(to.return) <- c("database", "report")
   }else{
