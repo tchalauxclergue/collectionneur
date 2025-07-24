@@ -345,8 +345,8 @@ bibliothecaire <- function(database, additions, method = "jw", save.updates = TR
     file.name <- paste(file.name, report.time, sep = "_")
     file.name.2 <- paste(file.name.2, report.time, sep = "_")
 
-    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
-    utils::write.csv(x = additions, file = paste0(save.dir, "/", file.name.2, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
+    utils::write.table(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
+    utils::write.table(x = additions, file = paste0(save.dir, "/", file.name.2, ".csv"), row.names = FALSE, fileEncoding = fileEncoding, sep = save.sep, dec = save.dec, na = na)
   }
 
   if (isTRUE(return.report)) {

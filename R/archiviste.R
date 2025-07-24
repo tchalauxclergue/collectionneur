@@ -146,7 +146,7 @@ archiviste <- function(database, additions, sample.ids, method = "jw", save.upda
 
     file.name <- paste(file.name, report.time, sep = "_")
 
-    utils::write.csv(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, sep = save.sep, dec = save.dec, fileEncoding = fileEncoding, na = na)
+    utils::write.table(x = database, file = paste0(save.dir, "/", file.name, ".csv"), row.names = FALSE, sep = save.sep, dec = save.dec, fileEncoding = fileEncoding, na = na)
   }
 
   if (isTRUE(return.report)) {
