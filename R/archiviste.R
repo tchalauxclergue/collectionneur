@@ -1,4 +1,4 @@
-#' L'Archiviste : A user-friendly database management
+#' L'Archiviste : A user-friendly database management.
 #'
 #' This function updates an existing database with new additions, ensuring consistency in sample identifiers and columns.
 #' It also generates a report detailing the updates made.
