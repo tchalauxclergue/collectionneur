@@ -114,10 +114,12 @@ collectionneur::archiviste(database = "path_to_file/database.csv",     # Path to
                            database.label = "example",                 # Your database label
                            note = "v2",                                # The update index of the database
                            method = "jw",                              # Matching method (default: "jw" for Jaro-Winkler).
-                           sep = ";",                                  # Field separator for CSV files reading and saving
-                           dec = ".",                                  # Decimal separator for CSV files reading and saving
+                           read.sep = ";",                             # Field separator for CSV files reading
+                           read.dec = ".",                             # Decimal separator for CSV files reading
                            na.strings = "",                            # Strings to be treated as 'NA'
                            fileEncoding = "latin1",                    # The encoding to be used on a file
+                           save.sep = ";",                             # Field separator for CSV files saving
+                           save.dec = ".",                             # Decimal separator for CSV files saving
                            na = ""                                     # Missing values in the data
                            )
 ```
@@ -217,7 +219,7 @@ The updated version of the database and the report are time-stamped to ensure th
 
 ## Getting help
 
-If you encounter a clear bug, have a question or suggestion, please either open an [Issues](https://github.com/tchalauxclergue/collectionneur/issues) or send an email to [Thomas Chalaux-Clergue (thomaschalaux@icloud.com)](mailto:thomaschalaux@icloud.com).
+If you encounter a clear bug, have a question or suggestion, please either open an [Issues](https://github.com/tchalauxclergue/collectionneur/issues) or send an email to [Thomas Chalaux-Clergue and Amaury Bardelle (thomaschalaux@icloud.com, amaury.bardelle@icloud.com)](mailto:thomaschalaux@icloud.com, amaury.bardelle@icloud.com).
 
 ## Citation
 

@@ -73,7 +73,7 @@ and is also archived on
 library(devtools)
 
 # Install the latest version from GitHub
-devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.2.0", ref = "master", force = T)
+devtools::install_github("https://github.com/tchalauxclergue/collectionneur/releases/tag/1.2.0", ref = "master", force = TRUE)
 
 # Alternatively, from the downloaded .tar.gz file
 devtools::install_local("path_to_file/collectionneur_1.2.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
@@ -119,10 +119,12 @@ collectionneur::archiviste(database = "path_to_file/database.csv",     # Path to
                            database.label = "example",                 # Your database label
                            note = "v2",                                # The update index of the database
                            method = "jw",                              # Matching method (default: "jw" for Jaro-Winkler).
-                           sep = ";",                                  # Field separator for CSV files reading and saving
-                           dec = ".",                                  # Decimal separator for CSV files reading and saving
+                           read.sep = ";",                             # Field separator for CSV files reading
+                           read.dec = ".",                             # Decimal separator for CSV files reading
                            na.strings = "",                            # Strings to be treated as 'NA'
                            fileEncoding = "latin1",                    # The encoding to be used on a file
+                           save.sep = ";",                             # Field separator for CSV files saving
+                           save.dec = ".",                             # Decimal separator for CSV files saving
                            na = ""                                     # Missing values in the data
                            )
 ```
@@ -222,8 +224,9 @@ traceability of database modifications.
 If you encounter a clear bug, have a question or suggestion, please
 either open an
 [Issues](https://github.com/tchalauxclergue/collectionneur/issues) or
-send an email to [Thomas Chalaux-Clergue
-(thomaschalaux@icloud.com)](mailto:thomaschalaux@icloud.com).
+send an email to [Thomas Chalaux-Clergue and Amaury Bardelle
+(thomaschalaux@icloud.com,
+amaury.bardelle@icloud.com)](mailto:thomaschalaux@icloud.com,%20amaury.bardelle@icloud.com).
 
 ## Citation
 
@@ -233,12 +236,12 @@ To cite this packages:
 utils::citation(package = "collectionneur")
 #> To cite the 'collectionneur' package in publications please use:
 #> 
-#>   Chalaux-Clergue, T. (2025). collectionneur: A user-friendly package
-#>   designed to manage internal databases efficently. , Zenodo [Package]:
-#>   https://doi.org/10.5281/zenodo.15146959, Github [Package]:
+#>   Chalaux-Clergue & Bardelle (2025). collectionneur: A user-friendly
+#>   package designed to manage internal databases efficently. , Zenodo
+#>   [Package]: https://doi.org/10.5281/zenodo.15146959, Github [Package]:
 #>   https://github.com/tchalauxclergue/collectionneur, Version = 1.2.0.
 #> 
-#> Ein BibTeX-Eintrag für LaTeX-Benutzer ist
+#> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {collectionneur: A user-friendly package designed to manage internal databases efficently.},
