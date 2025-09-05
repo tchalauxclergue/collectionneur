@@ -245,7 +245,7 @@ utils::citation(package = "collectionneur")
 #> 
 #>   @Manual{,
 #>     title = {collectionneur: A user-friendly package designed to manage internal databases efficently.},
-#>     author = {{Chalaux-Clergue} and {Thomas} and {Amaury} and {Bardelle}},
+#>     author = {{Chalaux-Clergue} and {Thomas} and {Bardelle} and {Amaury}},
 #>     year = {2025},
 #>     month = {7},
 #>     note = {R package version 1.2.0},
